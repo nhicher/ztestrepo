@@ -1,0 +1,19 @@
+---
+- job:
+    name: myjob-noop
+    parent: base
+    description: This a noop job
+    run: playbooks/noop.yaml
+    nodeset:
+      nodes:
+        - name: test-node
+          label: centos-oci
+
+- project:
+    name: sftests.com/ztestrepo
+    check-github.com:
+      jobs:
+        - myjob-noop
+    gate-github.com:
+      jobs:
+        - myjob-noop

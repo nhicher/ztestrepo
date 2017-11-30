@@ -1,0 +1,4 @@
+- hosts: test-node
+  tasks:
+    - name: Success
+      command: "true"
